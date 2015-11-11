@@ -1,5 +1,6 @@
 package nakup;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Nakup {
@@ -7,8 +8,10 @@ public class Nakup {
     public static void main(String[] args) {
         PolozkaNakupu polozka;
         polozka = new PolozkaNakupu();
+        ArrayList<PolozkaNakupu> seznam = new ArrayList<>();
         
         Scanner vstup = new Scanner(System.in);
+        
         System.out.print("Vlož název: ");
         polozka.nazev = vstup.nextLine();
         System.out.print("Vlož cenu za kus: ");
@@ -16,17 +19,17 @@ public class Nakup {
         System.out.print("Vlož počet kusů: ");
         polozka.kusu = vstup.nextInt();
         
+        seznam.add(polozka);
+
+        System.out.println();
         
-        polozka.nazev = "rohlik";
-        polozka.cenakus = 1.50;
-        polozka.kusu = 9;
-        
-        System.out.println("Název zboží: "+polozka.nazev);
-        System.out.println("Cena za kus: "+polozka.cenakus);
-        System.out.println("Počet kusů: "+polozka.kusu);
-        System.out.println("Celkem za položku: "+
-                polozka.cenakus*polozka.kusu);
-        
+        for (PolozkaNakupu i: seznam) {
+            System.out.println("Název zboží: "+i.nazev);
+            System.out.println("Cena za kus: "+i.cenakus);
+            System.out.println("Počet kusů: "+i.kusu);
+            System.out.println("Celkem za položku: "+
+                    i.cenakus*i.kusu);
+        }
     }
     
 }
